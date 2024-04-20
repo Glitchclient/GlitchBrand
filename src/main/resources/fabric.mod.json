@@ -1,8 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "customclientbrand",
-  "version": "1.0.1+1.20.4",
-
+  "version": "${version}",
   "name": "Custom Client Brand",
   "description": "Sends a custom client brand!",
   "authors": [
@@ -12,10 +11,8 @@
     "homepage": "https://github.com/MrKinau/CustomClientBrandMod",
     "repo": "https://github.com/MrKinau/CustomClientBrandMod"
   },
-
   "license": "CC0-1.0",
   "icon": "assets/customclientbrand/icon.png",
-
   "environment": "client",
   "entrypoints": {
     "main": [
@@ -29,8 +26,9 @@
     "customclientbrand.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.22",
-    "java": ">=17",
-    "cloth-config": ">=12.0.108"
+    "fabricloader": ">=0.15.0",
+    "minecraft": ">=1.20.5-beta.4",
+    "java": ">=21",
+    "cloth-config": ">=14.0.125"
   }
 }

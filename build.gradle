@@ -1,14 +1,14 @@
 plugins {
-	id 'fabric-loom' version '1.1-SNAPSHOT'
+	id 'fabric-loom' version '1.6-SNAPSHOT'
 	id 'maven-publish'
 }
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
-
-archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
+
+base {
+	archivesName = project.archives_base_name
+}
 
 repositories {
 	maven { url "https://maven.shedaniel.me/" }
@@ -24,15 +24,15 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	// Cloth Config API
-	modApi ("me.shedaniel.cloth:cloth-config-fabric:13.0.114") {
+	modApi ("me.shedaniel.cloth:cloth-config-fabric:14.0.125") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
 
 	// Mod Menu API
-	modApi "com.terraformersmc:modmenu:9.0.0-pre.1"
+	modApi "com.terraformersmc:modmenu:10.0.0-alpha.3"
 
-	compileOnly 'org.projectlombok:lombok:1.18.26'
-	annotationProcessor "org.projectlombok:lombok:1.18.26"
+	compileOnly 'org.projectlombok:lombok:1.18.30'
+	annotationProcessor "org.projectlombok:lombok:1.18.30"
 }
 
 processResources {
@@ -44,23 +44,26 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 17
+	it.options.release = 21
 	it.options.encoding = "UTF-8"
 }
 
 java {
 	withSourcesJar()
+
+	sourceCompatibility = JavaVersion.VERSION_21
+	targetCompatibility = JavaVersion.VERSION_21
 }
 
 jar {
 	from("LICENSE") {
-		rename { "${it}_${project.archivesBaseName}"}
+		rename { "${it}_${project.base.archivesName.get()}"}
 	}
 }
 
 publishing {
 	publications {
-		mavenJava(MavenPublication) {
+		create("mavenJava", MavenPublication) {
 			from components.java
 		}
 	}
