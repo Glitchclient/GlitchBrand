@@ -1,25 +1,22 @@
 {
   "schemaVersion": 1,
-  "id": "customclientbrand",
+  "id": "glitchbrand",
   "version": "${version}",
-  "name": "Custom Client Brand",
-  "description": "Sends a custom client brand!",
+  "name": "Glitchclient Brand Helper",
+  "description": "Brand Helper for Glitchclient",
   "authors": [
-    "MrKinau"
+    "TheErrorExe"
   ],
   "contact": {
-    "homepage": "https://github.com/MrKinau/CustomClientBrandMod",
-    "repo": "https://github.com/MrKinau/CustomClientBrandMod"
+    "homepage": "https://glitchclient.theerrorexe.dev",
+    "credits": "https://glitchclient.theerrorexe.dev/credits/glitchbrand.html"
   },
   "license": "CC0-1.0",
   "icon": "assets/customclientbrand/icon.png",
   "environment": "client",
   "entrypoints": {
     "main": [
-      "dev.kinau.customclientbrand.CustomClientBrand"
-    ],
-    "modmenu": [
-      "dev.kinau.customclientbrand.config.CCBModMenuIntegration"
+      "dev.theerrorexe.glitchbrand.GlitchBrand"
     ]
   },
   "mixins": [
